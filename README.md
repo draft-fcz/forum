@@ -4,6 +4,7 @@ discourse on kubernetes
 # links
 
 - [Discourse Free Software](https://github.com/discourse/discourse)
+  - [Official Docker Image](https://github.com/discourse/discourse_docker)
   - [Install](https://github.com/discourse/discourse/blob/main/docs/INSTALL.md)
     - [Install Cloud](https://github.com/discourse/discourse/blob/main/docs/INSTALL-cloud.md)
     - [Email Providers](https://github.com/discourse/discourse/blob/main/docs/INSTALL-email.md)  
