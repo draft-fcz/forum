@@ -1,0 +1,32 @@
+discourse:
+  ingress:
+    enabled: true
+    hostname: "forum.fabricio.org"
+    path: "/"
+    annotations: { "kubernetes.io/ingress.class": "nginx" }
+
+  postgresql:
+    enabled: true
+    postgresqlDatabase: "discourse_db"
+    postgresqlUsername: "postgres"
+    # HACK: the bitnami/disourse Chart templates have
+    # postgres client (admin user) passwords and postgres user passwords all over the place
+    # what work for us was setting the same password in 6 places: 4 here and 2
+    # on an external Secret object at ./templates/secrets.yaml
+    # I am pretty sure this was overkill, if you are brave and is reading this comment
+    # feel free to refactor to a better solution :)
+    existingSecret: "forum-secrets"
+    postgresqlPostgresPassword: "m5gKA6YA6M2gBfa2G8hBdnkiVNc2zxCcLb"
+    postgresqlPassword: "m5gKA6YA6M2gBfa2G8hBdnkiVNc2zxCcLb"
+
+  externalDatabase:
+    database: "discourse_db"
+    postgresqlPostgresUser: "postgres"
+    password: "m5gKA6YA6M2gBfa2G8hBdnkiVNc2zxCcLb"
+    postgresqlPostgresPassword: "m5gKA6YA6M2gBfa2G8hBdnkiVNc2zxCcLb"
+
+  discourse:
+    host: "forum.fabricio.org"
+    siteName: "Teste fcz2"
+    username: "forum_admin"
+    password: "ABkZrHQTkTgMqMmLoS4BEAND4GZSGy7hZ2"
